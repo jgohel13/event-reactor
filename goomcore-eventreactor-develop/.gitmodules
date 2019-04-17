@@ -1,0 +1,3 @@
+[submodule "src/test/resources/features"]
+	path = src/test/resources/features
+	url = https://git.inteloom.com/lareau/lareau-features.git

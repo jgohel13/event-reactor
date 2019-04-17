@@ -1,0 +1,78 @@
+spring:
+  rabbitmq:
+      host: 192.168.99.100
+  cloud.stream:
+    bindings:
+      email-outbound:
+        destination: communication
+        group: email.outbound
+      email-inbound:
+        destination: communication
+        group: email.inbound
+      email-assigned:
+        destination: communication
+        group: email.assigned
+      sms-outbound:
+        destination: communication
+        group: sms.outbound
+      sms-inbound:
+        destination: communication
+        group: sms.inbound
+      voip-outbound:
+        destination: communication
+        group: voip.outbound
+      voip-inbound:
+        destination: communication
+        group: voip.inbound
+    rabbit.bindings:
+      email-outbound:
+        consumer:
+          binding-routing-key: email.outbound
+          auto-bind-dlq: true
+          exchange-auto-delete: false
+          republish-to-dlq: true
+      email-inbound:
+        consumer:
+          binding-routing-key: email.inbound
+          auto-bind-dlq: true
+          exchange-auto-delete: false
+          republish-to-dlq: true
+      email-assigned:
+        consumer:
+          binding-routing-key: email.assigned
+          auto-bind-dlq: true
+          exchange-auto-delete: false
+          republish-to-dlq: true
+      sms-outbound:
+        consumer:
+          binding-routing-key: sms.outbound
+          auto-bind-dlq: true
+          exchange-auto-delete: false
+          republish-to-dlq: true
+      sms-inbound:
+        consumer:
+          binding-routing-key: sms.inbound
+          auto-bind-dlq: true
+          exchange-auto-delete: false
+          republish-to-dlq: true
+      voip-outbound:
+        consumer:
+          binding-routing-key: voip.outbound
+          auto-bind-dlq: true
+          exchange-auto-delete: false
+          republish-to-dlq: true
+      voip-inbound:
+        consumer:
+          binding-routing-key: voip.inbound
+          auto-bind-dlq: true
+          exchange-auto-delete: false
+          republish-to-dlq: true
+
+application:
+  data-service: http://localhost:8686/lareaudata
+  system-user:
+    id: 2
+    firstname: super
+    lastname: super
+    username: demouser
+    email: super@inteloom.com
